@@ -5,11 +5,12 @@ from reportlab.lib import colors
 from datetime import date
 import random
 import math
+today_str = date.today().strftime("%B %d, %Y")
 
 # -----------------------
 # Settings
 # -----------------------
-pdf_path = "Math_Practice_Test_Age8.pdf"
+pdf_path = "test-"+today_str.replace(" ",'').replace(',','-')+".pdf"
 ARITH_COL_CHARS = 8               # fixed digit columns for long lines
 SEED = None                       # set to an int (e.g., 123) for reproducible randomness
 
@@ -361,7 +362,6 @@ c.drawString(margin, 0.30 * inch, "Tip: Work neatly and double-check your answer
 c.showPage()  # start a new page
 
 # Header for page 2
-today_str = date.today().strftime("%B %d, %Y")
 c.setFont("Helvetica-Bold", 18)
 c.drawString(margin, H - margin, f"Math Test — {today_str}  (Page 2)")
 c.setFont("Helvetica", 11)
